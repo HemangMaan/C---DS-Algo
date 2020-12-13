@@ -1,31 +1,37 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void Replacepi(char inp[],char ans[],int i,int j){
+void Replacepi(char inp[],int i){
     if(inp[i]=='\0'){
-        cout<<ans;
+        cout<<inp;
         return;
     }
     if(inp[i]=='p' && inp[i+1]=='i'){
-        ans[j]='3';
-        ans[j+1]='.';
-        ans[j+2]='1';
-        ans[j+3]='4';
-        Replacepi(inp,ans,i+2,j+4);
+        int j=i;
+        while(inp[j]!='\0'){
+            j++;
+        }
+        for(int k =j+2;k>i+2;--k){
+            inp[k]=inp[j];
+        }
+        inp[i]='3';
+        inp[i+1]='.';
+        inp[i+2]='1';
+        inp[i+3]='4';
+        Replacepi(inp,i+4);
     }
     else
     {
-        ans[j]=inp[i];
-        Replacepi(inp,ans,i+1,j+1);
-    }
+        Replacepi(inp,i+1);
+    } 
 }
 
 int main(){
     int t;
     cin>>t;
     while(t--){
-        char inp[1000],ans[2005];
+        char inp[1000];
         cin>>inp;
-        Replacepi(inp,ans,0,0);
+        Replacepi(inp,0);
     }
 }
