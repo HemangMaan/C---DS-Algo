@@ -6,7 +6,7 @@ void Merge(vector<int> &a,int s,int e){
     int i=s;
     int j= mid+1;
     int k = s;
-    int temp[100];
+    vector<int> temp(100);
 
     while(i<=mid && j<=e){
         if(a[i]<a[j]){
@@ -45,7 +45,7 @@ int main(){
     vector<int> arr(n);
     for(int i=0;i<n;i++)
         cin>>arr[i];
-    Mergesort(arr,0,n);
+    Mergesort(arr,0,n-1);
     for(auto it:arr){
         cout<<it<<" ";
     }
