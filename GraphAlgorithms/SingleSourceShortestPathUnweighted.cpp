@@ -15,7 +15,7 @@ public:
     void SSSbfs(T src){
         q.push(src);
         v[src] = true;
-        level[src] = cnt;
+        level[src] = 0;
         while(!q.empty()){
             T node = q.front();
             q.pop();
